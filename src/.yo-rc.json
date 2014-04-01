@@ -1,0 +1,16 @@
+{
+  "generator-bbb": {
+    "name": "taskr",
+    "testFramework": "jasmine",
+    "moduleStyle": "amd",
+    "indent": {
+      "style": "space",
+      "size": 2
+    },
+    "paths": {
+      "base": ".",
+      "tests": "test",
+      "modules": "app/modules"
+    }
+  }
+}
