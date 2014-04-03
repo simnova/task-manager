@@ -24,11 +24,9 @@ define(function(require, exports, module) {
             '#content': new Tasks.Views.Default()
           }
         }).render().promise().then(function(){
-          $( document ).on( "mobileinit", function() {
-            $("#main").trigger("create");
-            console.log("page changed.");
-            $("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false, reverse:true } );
-          });
+          $("#main").trigger("create");
+          console.log("page changed.");
+          $("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false, reverse:true } );
         });
 
       console.log("Welcome to your / route.");

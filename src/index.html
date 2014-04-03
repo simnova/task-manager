@@ -9,11 +9,11 @@
   <title>Tasks</title>
 
   <!-- Application styles. -->
-  <!-- build:[href] /styles.min.css -->
+  <!-- build:[href] styles.min.css -->
   <link rel="stylesheet" href="/app/styles/index.css"> 
   <!-- /build -->
-  <link rel="stylesheet" href="/vendor/bower/jquery-mobile-bower/css/jquery.mobile-1.4.2.min.css" />
-  <link rel="stylesheet" href="/vendor/bower/jquery-mobile-bower/css/jquery.mobile.inline-png-1.4.2.min.css" />
+  <link rel="stylesheet" href="vendor/bower/jquery-mobile-bower/css/jquery.mobile-1.4.2.min.css" />
+  <link rel="stylesheet" href="vendor/bower/jquery-mobile-bower/css/jquery.mobile.inline-png-1.4.2.min.css" />
 </head>
 
 <body>
@@ -21,8 +21,12 @@
   <div data-role="page" id="main"></div>
 
   <!-- Application source. -->
-  <!-- build:[src] /source.min.js -->
-  <script data-main="/app/main" src="/vendor/bower/requirejs/require.js"></script>
+  <script type="text/javascript">
+     window._cordovaNative = true;
+  </script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <!-- build:[src] source.min.js -->
+  <script data-main="app/main" src="/vendor/bower/requirejs/require.js"></script>
   <!-- /build -->
 </body>
 

@@ -112,6 +112,10 @@ module.exports = function(grunt) {
           {
             src: "vendor/**",
             dest: "dist/"
+          },
+          {
+            src: ["cordova.js","debugdata.json","web.config"],
+            dest: "dist/"
           }
         ]
       }
