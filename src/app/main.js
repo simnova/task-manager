@@ -13,8 +13,9 @@ require(["config"], function() {
     document.addEventListener('deviceready', function() {
       // Trigger the initial route, set the
       // root folder to '' by default.  Change in app.js.
+      console.log("deviceReady");
       Backbone.history.start({
-        pushState: false,
+        pushState: true,
         root: app.root
       });
     });

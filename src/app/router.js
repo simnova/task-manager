@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+  define(function(require, exports, module) {
   "use strict";
 
   // External dependencies.
@@ -16,8 +16,6 @@ define(function(require, exports, module) {
     },
 
     index: function() {
-      //$.mobile.changePage( "#main" , { reverse: false, changeHash: false } );
-      //$.mobile.loading( "show" );
         app.useLayout('layouts/default', {
           el: '#main',
           views: {
@@ -25,15 +23,10 @@ define(function(require, exports, module) {
           }
         }).render().promise().then(function(){
           $("#main").trigger("create");
-          console.log("page changed.");
-          $("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false, reverse:true } );
+          //$("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false, reverse:true } );
         });
-
-      console.log("Welcome to your / route.");
     },
-taskDetail: function(taskId) {
-      //$.mobile.changePage( "#main" , { reverse: false, changeHash: false } );
-      
+    taskDetail: function(taskId) {
         app.useLayout('layouts/default', {
           el: '#main',
           views: {
@@ -41,13 +34,8 @@ taskDetail: function(taskId) {
           }
         }).render().promise().then(function(){
           $("#main").trigger("create");
-          console.log("page changed1.");
-          $("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false } );
+          //$("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false } );
         });
-
-      console.log("Welcome to your detail route.");
     }
-
-
   });
 });

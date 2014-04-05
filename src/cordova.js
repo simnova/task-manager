@@ -64,7 +64,7 @@ phonegapdesktop.internal = {
 
     initialiseData : function() {
         // Load the default config file
-        this.parseConfigFile('debugdata.json');
+        this.parseConfigFile('/debugdata.json');
 
         // Check if the default specifies an alternate file to use
         if(this.debugdata.internal.currentFile) {

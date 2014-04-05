@@ -2,7 +2,7 @@
   "internal":{
     "arraySequence":true,
     "exceptionThreshold":0,
-	"startupDelay" : 200
+	"startupDelay" : 800
   },
   "accelerometer":{
     "acceleration":[

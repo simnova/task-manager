@@ -1,11 +1,17 @@
-<h3>taskDetail</h3>
+<h3>Task Detail</h3>
 
+<form>
+    <label for="title">Title:</label>
+    <input type="text" id="title" value="<%=task.title%>"></br>
 
-Task Name:<br/>
-<%=task.name%><br/><br/>
-Detail:<br/>
-<%=task.detail%><br/><br/>
+    <label for="description">Description:</label>
+    <textarea id="description"><%=task.description%></textarea></br>
+
+    <label>
+      <input type="checkbox" name="completed" id="completed" checked="<%=task.completed%>">Completed
+    </label>
+
+    <button id="saveTask">Save</button>
+</form>
+
 <a href="/" class="ui-btn">Back</a>
-
-
-

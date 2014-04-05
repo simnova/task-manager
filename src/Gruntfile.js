@@ -18,6 +18,9 @@ module.exports = function(grunt) {
           include: ["main"],
           insertRequire: ["main"],
           out: "dist/source.min.js",
+          paths: {
+            cordova: "empty:",
+          },
           optimize: "uglify2",
 
           // Since we bootstrap with nested `require` calls this option allows

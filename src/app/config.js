@@ -15,6 +15,7 @@ require.config({
     "jquery": "../vendor/bower/jquery/dist/jquery",
     "jquerymobile": "../vendor/bower/jquery-mobile-bower/js/jquery.mobile-1.4.2",
     "backbone": "../vendor/bower/backbone/backbone",
+    "localstorage": "../vendor/bower/backbone.localstorage/backbone.localstorage",
     "layoutmanager": "../vendor/bower/layoutmanager/backbone.layoutmanager"
   },
 
