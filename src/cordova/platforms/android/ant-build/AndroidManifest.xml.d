@@ -1,2 +1,2 @@
-D:\tasks\taskr\platforms\android\ant-build\AndroidManifest.xml : \
-D:\tasks\taskr\platforms\android\AndroidManifest.xml \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\ant-build\AndroidManifest.xml : \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\AndroidManifest.xml \

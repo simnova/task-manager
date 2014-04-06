@@ -16,18 +16,14 @@
 
 <body>
   <!-- Application container. -->
-  <div data-role="page" id="main">
-    Hello world
-  </div>
+  <div data-role="page" id="main"></div>
 
   <!-- Application source. -->
   <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="index.js"></script>
-
-  <script data-main="app/main" src="source.min.js"></script>
   <script type="text/javascript">
-      app.initialize();
+     window._cordovaNative = true;
   </script>
+  <script data-main="app/main" src="source.min.js"></script>
 </body>
 
 </html>

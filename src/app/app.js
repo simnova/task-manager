@@ -8,17 +8,15 @@ define(function(require, exports, module) {
   require("layoutmanager");
 
 
-	$(document).on( "mobileinit",
-		// Set up the "mobileinit" handler before requiring jQuery Mobile's module
-		function() {
-			// Prevents all anchor click handling including the addition of active button state and alternate link bluring.
-			$.mobile.linkBindingEnabled = false;
 
-			// Disabling this will prevent jQuery Mobile from handling hash changes
-			$.mobile.hashListeningEnabled = false;
-		}
-	);
-
+  console.log("mobile.config executing");
+  $(document).on("mobileinit", function () {
+      console.log("mobileinit fired");
+      $.mobile.ajaxEnabled = false;
+      $.mobile.linkBindingEnabled = false;
+      $.mobile.hashListeningEnabled = false;
+      $.mobile.pushStateEnabled = false;
+  });
   // Alias the module for easier identification.
   var app = module.exports;
 

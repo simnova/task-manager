@@ -3,10 +3,16 @@
 
   // External dependencies.
   var Backbone = require("backbone");
-  require("jquery");
-  require("jquerymobile");
   var Tasks = require("modules/tasks");
   var app = require("app");
+  require("jquerymobile");
+
+  console.log("router.. ajaxenabled =" + $.mobile.ajaxEnabled);
+  // hate jquery mobile
+  $.mobile.ajaxEnabled = false;
+  $.mobile.linkBindingEnabled = false;
+  $.mobile.hashListeningEnabled = false;
+  $.mobile.pushStateEnabled = false;
 
   // Defining the application router.
   module.exports = Backbone.Router.extend({
@@ -22,8 +28,8 @@
             '#content': new Tasks.Views.Default()
           }
         }).render().promise().then(function(){
-          $("#main").trigger("create");
-          //$("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false, reverse:true } );
+          $("#main").enhanceWithin();
+          $("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false, reverse:true } );
         });
     },
     taskDetail: function(taskId) {
@@ -33,8 +39,8 @@
             '#content': new Tasks.Views.Detail({TaskId: taskId})
           }
         }).render().promise().then(function(){
-          $("#main").trigger("create");
-          //$("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false } );
+          $("#main").enhanceWithin();
+          $("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false } );
         });
     }
   });

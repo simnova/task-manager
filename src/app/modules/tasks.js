@@ -20,10 +20,13 @@ define(function (require, exports, module) {
     localStorage: new Backbone.LocalStorage("task"),
     model: Tasks.Model,
     done: function() {
-      return this.where({done:true});
+      return this.where({completed:true});
     },
     remaining: function() {
       return this.without.apply(this,this.done());
+    },
+    all: function(){
+      return this;
     },
     nextOrder: function() {
       if(!this.length) return 1;
@@ -37,7 +40,7 @@ define(function (require, exports, module) {
     tagName: "li",
     name: "task",
     serialize: function () {
-      return this.model.toJSON();
+      return {task : this.model };
     }
   });
 
@@ -51,19 +54,23 @@ define(function (require, exports, module) {
     },
 
     serialize: function () {
-      return { task: this.model.toJSON() };
+      return { task: this.model };
     },
 
     saveTask: function(){
       var self = this;
       var model = self.model;
-      model.set({
+      model.save({
         title: self.$('#title').val(),
         description: self.$('#description').val(),
         completed: self.$('#completed').is(':checked')
+      },{
+        success:function(){
+         // self.render();
+        }
       });
-      model.save();
     },
+
 
     initialize: function (options) {
       var self = this;
@@ -75,7 +82,8 @@ define(function (require, exports, module) {
     },
 
     afterRender:function(){
-      $("#content").trigger("create");
+      $('#content').enhanceWithin();
+      $('#completed').checkboxradio('refresh');
     }
 
   });
@@ -84,10 +92,52 @@ define(function (require, exports, module) {
     template: "tasks",
 
     events: {
-      "click #addTask" : "addTask"
+      "click #addTask" : "addTask",
+      "change input:radio[name=taskFilter]" : "applyFilter"
     },
 
     className: 'tasks',
+
+    filterCollection: function(collectionToShow){
+      var self = this;
+      //hide all
+      _.each(self.collection.models,function(model){
+        $("#task-" + model.attributes.id).hide();
+      });
+      //show only ones 
+      _.each(collectionToShow,function(model){
+        $("#task-" + model.attributes.id).show();
+      });
+    },
+
+    renderCollection: function(collection){
+      var self = this;
+      $('#taskContainer').empty();
+      _.each(collection,function(model) {
+        self.addTaskToList(model);
+      });
+    },
+
+    addTaskToList: function(model){
+      var self = this;
+      var container = '#taskContainer';
+      return self.insertView(container, new Tasks.Views.TaskListItem({ model: model, id: 'task-' + model.attributes.id }));
+    },
+    
+    applyFilter: function(){
+      var self = this;
+      switch($("input:radio[name=taskFilter]:checked").val()){
+        case "filterIncomplete":
+          self.filterCollection.call(self,self.collection.remaining());
+          break;
+        case "filterCompleted":
+          self.filterCollection.call(self,self.collection.done());
+          break;
+        case "filterNone":
+          self.filterCollection.call(self,self.collection.models);
+          break;
+      }
+    },
 
     addTask: function(){
       var self = this;
@@ -99,11 +149,7 @@ define(function (require, exports, module) {
 
     collection: new Tasks.Collection(),
 
-    addTaskToList: function(model){
-      var self = this;
-      var container = '#taskContainer';
-      return self.insertView(container, new Tasks.Views.TaskListItem({ model: model }));
-    },
+
 
     initialize: function () {
       var self = this;
@@ -111,16 +157,15 @@ define(function (require, exports, module) {
       console.log("initialized");
     },
 
+
     beforeRender: function () {
       var self = this;
-      var container = '#taskContainer';
-      self.collection.each(function(model) {
-        self.addTaskToList(model);
-      });
+      self.renderCollection(self.collection.models);
+
     },
 
     afterRender:function(){
-      $("#content").trigger("create");
+      $('#content').enhanceWithin();
     }
 
   });

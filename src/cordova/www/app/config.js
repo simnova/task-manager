@@ -14,7 +14,10 @@ require.config({
     // Map remaining vendor dependencies.
     "jquery": "../vendor/bower/jquery/dist/jquery",
     "jquerymobile": "../vendor/bower/jquery-mobile-bower/js/jquery.mobile-1.4.2",
+    "jquerymobileconfig": "../vendor/jquery.mobile.config",
+    
     "backbone": "../vendor/bower/backbone/backbone",
+    "localstorage": "../vendor/bower/backbone.localstorage/backbone.localstorage",
     "layoutmanager": "../vendor/bower/layoutmanager/backbone.layoutmanager"
   },
 
@@ -27,6 +30,8 @@ require.config({
 
       // This maps the global `Backbone` object to `require("backbone")`.
       exports: "Backbone"
-    }
+    },
+    "jquerymobileconfig" : ["jquery"],
+    "jquerymobile" : ["jquery","jquerymobileconfig"]
   }
 });
