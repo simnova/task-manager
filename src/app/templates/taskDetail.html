@@ -4,10 +4,10 @@
 <input type="text" id="title" value="<%=task.escape('title')%>"></br>
 
 <label for="description">Description:</label>
-<textarea id="description"><%=task.get('description')%></textarea></br>
+<textarea id="description"><%=task.escape('description')%></textarea></br>
 
 <label>
-  <input type="checkbox" name="completed" id="completed" <% task.completed === true ? print('checked') : '' %>>Completed
+  <input type="checkbox" name="completed" id="completed" <% task.get('completed') === true ? print('checked="checked"') : print('') %> >Completed
 </label>
 
 <button id="saveTask">Save</button>

@@ -60,24 +60,28 @@ define(function (require, exports, module) {
     saveTask: function(){
       var self = this;
       var model = self.model;
-      model.save.call(self,{
+      model.save({
         title: self.$('#title').val(),
         description: self.$('#description').val(),
         completed: self.$('#completed').is(':checked')
       },{
-        success:function(){
-          self.render();
-        }
+        success: this.createSuccess
       });
     },
 
     initialize: function (options) {
       var self = this;
+      _.bindAll(self, "createSuccess");
+
       var collection = new Tasks.Collection();
       collection.fetch();
       self.model = collection.find({id:options.TaskId});
 
       this.listenTo(this.model, 'change', self.render);
+    },
+
+    createSuccess: function(m, response) {
+      this.$('#completed').prop('checked',m.attributes.completed);
     },
 
     afterRender:function(){
@@ -148,14 +152,11 @@ define(function (require, exports, module) {
 
     collection: new Tasks.Collection(),
 
-
-
     initialize: function () {
       var self = this;
       self.collection.fetch();
       console.log("initialized");
     },
-
 
     beforeRender: function () {
       var self = this;
