@@ -1,0 +1,16 @@
+<label for="newTaskTitle">Task Title:</label>
+<input type="text" id="newTaskTitle">
+<button id="addTask">Create Task</button>
+
+<br/>
+
+<fieldset data-role="controlgroup" data-type="horizontal">
+  <legend>Show:</legend>
+  <input type="radio" name="taskFilter" id="filterNone" value="filterNone" checked="checked"/>
+  <label for="filterNone">All</label>
+  <input type="radio" name="taskFilter" id="filterIncomplete" value="filterIncomplete"/>
+  <label for="filterIncomplete">Incomplete</label>
+  <input type="radio" name="taskFilter" id="filterCompleted" value="filterCompleted"/>
+  <label for="filterCompleted">Completed</label>
+</fieldset>
+<ul data-role="listview" data-inset="true" id="taskContainer"></ul>

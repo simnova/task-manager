@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.simnova.taskr" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>taskr</name>
+    <description>
+        A sample Apache Cordova application that uses backbone and jquery mobile.
+    </description>
+    <author email="patrick@simnova.com" href="http://developers.simnova.com">
+        Simnova
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="load-url-timeout" value="60000" />
+</widget>
