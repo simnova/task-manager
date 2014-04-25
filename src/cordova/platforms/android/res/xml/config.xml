@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.simnova.taskr" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.simnova.taskr" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
@@ -14,4 +14,14 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="load-url-timeout" value="60000" />
+    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" />
+    <icon gap:platform="ios" src="res/icon/ios/icon-57.png" />
+    <icon gap:platform="ios" src="res/icon/ios/icon-72.png" />
+    <icon gap:platform="ios" src="res/icon/ios/icon-57-2x.png" />
+    <icon gap:platform="ios" src="res/icon/ios/icon-72-2x.png" />
+    <icon gap:platform="wp8" src="res/icon/windows-phone/icon-62-tile.png" />
+    <icon gap:platform="wp8" src="res/icon/windows-phone/icon-173-tile.png" />
 </widget>
