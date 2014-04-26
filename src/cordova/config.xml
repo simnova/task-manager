@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.simnova.taskr" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.simnova.taskr" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap = "http://phonegap.com/ns/1.0">
     <name>taskr</name>
     <description>
         A sample Apache Cordova application that uses backbone and jquery mobile.
@@ -10,4 +10,17 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="load-url-timeout" value="60000" />
+
+    <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android" gap:density="ldpi"  />
+    <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android" gap:density="mdpi"  />
+    <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android" gap:density="hdpi"  />
+    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android" gap:density="xhdpi" />
+
+    <icon src="res/icon/ios/icon-57.png"            gap:platform="ios" />
+    <icon src="res/icon/ios/icon-72.png"            gap:platform="ios" />
+    <icon src="res/icon/ios/icon-57-2x.png"         gap:platform="ios" />
+    <icon src="res/icon/ios/icon-72-2x.png"         gap:platform="ios" />
+
+    <icon src="res/icon/windows-phone/icon-62-tile.png"     gap:platform="wp8" />
+    <icon src="res/icon/windows-phone/icon-173-tile.png"    gap:platform="wp8" />
 </widget>
