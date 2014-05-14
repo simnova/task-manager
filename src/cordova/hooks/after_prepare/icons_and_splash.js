@@ -6,13 +6,11 @@ var projectRoot = cordova_util.isCordova(process.cwd());
 var projectXml = cordova_util.projectConfig(projectRoot);
 var projectConfig = new ConfigParser(projectXml);
 projectConfig.name();
-
 /*
 	BE SURE NODE_PATH is set with your node-modules directory.. i.e.:
 	windows : C:\Users\<<username>>\AppData\Roaming\npm\node_modules
 	osx : /usr/local/lib/node_modules (depends on how you have node installed)
 */
-
 console.log("process.env.CORDOVA_VERSION: "+process.env.CORDOVA_VERSION);
 console.log("process.env.CORDOVA_PLATFORMS: "+process.env.CORDOVA_PLATFORMS);
 console.log("process.env.CORDOVA_PLUGINS: "+process.env.CORDOVA_PLUGINS);

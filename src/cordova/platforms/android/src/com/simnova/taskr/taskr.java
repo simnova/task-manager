@@ -21,8 +21,6 @@ package com.simnova.taskr;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
-import android.os.Build;
-import android.webkit.WebView;
 
 public class taskr extends CordovaActivity 
 {
@@ -34,9 +32,6 @@ public class taskr extends CordovaActivity
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html");
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-          WebView.setWebContentsDebuggingEnabled(true);
-        }
     }
 }
 

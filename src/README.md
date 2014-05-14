@@ -1,0 +1,3 @@
+To start:
+
+bower install

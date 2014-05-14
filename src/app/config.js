@@ -31,7 +31,9 @@ require.config({
       // This maps the global `Backbone` object to `require("backbone")`.
       exports: "Backbone"
     },
-    "jquerymobileconfig" : ["jquery"],
-    "jquerymobile" : ["jquery","jquerymobileconfig"]
+    //"jquerymobileconfig" : ["jquery"],
+    "jquerymobile" : ["jquery"
+    //,"jquerymobileconfig"
+    ]
   }
 });

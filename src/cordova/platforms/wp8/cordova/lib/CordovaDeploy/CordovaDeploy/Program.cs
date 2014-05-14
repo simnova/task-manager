@@ -246,7 +246,7 @@ namespace CordovaDeploy
 
                 try
                 {
-                    IRemoteIsolatedStorageFile isoFile = app.GetIsolatedStore();
+                    IRemoteIsolatedStorageFile isoFile = app.GetIsolatedStore(null);
                     int index = 0;
                     while (!isExiting) //app.IsRunning()) // not implemented ... wtf?
                     {

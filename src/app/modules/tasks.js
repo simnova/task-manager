@@ -70,6 +70,7 @@ define(function (require, exports, module) {
     },
 
     initialize: function (options) {
+      debugger;
       var self = this;
       _.bindAll(self, "createSuccess");
 

@@ -241,6 +241,39 @@
         <Content Include="www\index.html" />
     </ItemGroup>
     <ItemGroup>
+        <Content Include="www\res\icon\android\icon-36-ldpi.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\android\icon-48-mdpi.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\android\icon-72-hdpi.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\android\icon-96-xhdpi.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\ios\icon-57-2x.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\ios\icon-57.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\ios\icon-72-2x.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\ios\icon-72.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\windows-phone\icon-173-tile.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\windows-phone\icon-48.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\res\icon\windows-phone\icon-62-tile.png" />
+    </ItemGroup>
+    <ItemGroup>
         <Content Include="www\source.min.js" />
     </ItemGroup>
     <ItemGroup>
