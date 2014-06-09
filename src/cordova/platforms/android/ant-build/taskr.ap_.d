@@ -18,6 +18,7 @@ D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\cordova.j
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\cordova_plugins.js \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\debugdata.json \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\index.html \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\res \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\source.min.js \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\source.min.js.map \
@@ -39,6 +40,14 @@ D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\app\templ
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\app\templates\tasks.html \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\app\templates\taskSummary.html \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\app\templates\layouts\default.html \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins\org.apache.cordova.dialogs \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins\org.apache.cordova.splashscreen \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins\org.apache.cordova.dialogs\www \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins\org.apache.cordova.dialogs\www\android \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins\org.apache.cordova.dialogs\www\notification.js \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins\org.apache.cordova.dialogs\www\android\notification.js \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins\org.apache.cordova.splashscreen\www \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\plugins\org.apache.cordova.splashscreen\www\splashscreen.js \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\res\icon \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\res\icon\android \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\res\icon\ios \
@@ -54,7 +63,10 @@ D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\res\icon\
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\res\icon\windows-phone\icon-173-tile.png \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\res\icon\windows-phone\icon-48.png \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\res\icon\windows-phone\icon-62-tile.png \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\vendor\analytics \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\vendor\analytics.js \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\vendor\bower \
+D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\vendor\google-analytics-amd.js \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\vendor\jquery.mobile.config.js \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\vendor\bower\almond \
 D:\GitHub\simnova-taskmanager\src\cordova\platforms\android\assets\www\vendor\bower\backbone \

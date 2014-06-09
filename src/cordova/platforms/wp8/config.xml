@@ -10,4 +10,10 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="load-url-timeout" value="60000" />
+    <feature name="SplashScreen">
+        <param name="wp-package" value="SplashScreen" />
+    </feature>
+    <feature name="Notification">
+        <param name="wp-package" value="Notification" />
+    </feature>
 </widget>

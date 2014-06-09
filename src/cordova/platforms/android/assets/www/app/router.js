@@ -6,6 +6,8 @@
   var Tasks = require("modules/tasks");
   var app = require("app");
   require("jquerymobile");
+  var ga = require("ga");
+
 
   console.log("router.. ajaxenabled =" + $.mobile.ajaxEnabled);
   // hate jquery mobile
@@ -28,6 +30,11 @@
             '#content': new Tasks.Views.Default()
           }
         }).render().promise().then(function(){
+          ga('send', {
+            'hitType': 'pageview',
+            'page': '/tasks',
+            'title': 'Task List'
+          });
           $("#main").enhanceWithin();
           $("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false, reverse:true } );
         });
@@ -39,6 +46,11 @@
             '#content': new Tasks.Views.Detail({TaskId: taskId})
           }
         }).render().promise().then(function(){
+          ga('send', {
+            'hitType': 'pageview',
+            'page': '/task/' + taskId,
+            'title': 'Task Detail'
+          });
           $("#main").enhanceWithin();
           $("body").pagecontainer("change", "#main" , {allowSamePageTransition: true, transition : "slide", changeHash: false } );
         });

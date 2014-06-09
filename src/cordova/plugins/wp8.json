@@ -3,7 +3,31 @@
         "installed": [],
         "uninstalled": []
     },
-    "config_munge": {},
-    "installed_plugins": {},
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"wp-package\" value=\"SplashScreen\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"wp-package\" value=\"Notification\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "{CEC055A0-DCEA-4D9F-B9FE-BF3198399A7C}"
+        },
+        "org.apache.cordova.dialogs": {
+            "PACKAGE_NAME": "{CEC055A0-DCEA-4D9F-B9FE-BF3198399A7C}"
+        }
+    },
     "dependent_plugins": {}
 }

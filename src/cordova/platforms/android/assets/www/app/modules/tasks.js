@@ -50,11 +50,25 @@ define(function (require, exports, module) {
     className: "post",
 
     events: {
-      "click #saveTask" : "saveTask"
+      "click #saveTask" : "saveTask",
+      "click #deleteTask" : "deleteTask"
     },
 
     serialize: function () {
       return { task: this.model };
+    },
+    alertDismissed: function(){
+
+    },
+    deleteTask: function(){
+      //window.alert = window.alert || navigator.notification.alert;
+      var self = this;
+      navigator.notification.alert(
+          'You are the winner!',  // message
+          self.alertDismissed,         // callback
+          'Game Over',            // title
+          'Done'                  // buttonName
+      );
     },
 
     saveTask: function(){

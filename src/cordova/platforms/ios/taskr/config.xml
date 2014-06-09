@@ -29,4 +29,11 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="load-url-timeout" value="60000" />
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
 </widget>

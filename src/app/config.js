@@ -18,7 +18,9 @@ require.config({
     
     "backbone": "../vendor/bower/backbone/backbone",
     "localstorage": "../vendor/bower/backbone.localstorage/backbone.localstorage",
-    "layoutmanager": "../vendor/bower/layoutmanager/backbone.layoutmanager"
+    "layoutmanager": "../vendor/bower/layoutmanager/backbone.layoutmanager",
+    "ga": "../vendor/google-analytics-amd",
+    "analytics": "../vendor/analytics"
   },
 
   shim: {

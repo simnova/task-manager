@@ -7,8 +7,6 @@ define(function(require, exports, module) {
   var Backbone = require("backbone");
   require("layoutmanager");
 
-
-
   console.log("mobile.config executing");
   $(document).on("mobileinit", function () {
       console.log("mobileinit fired");
@@ -17,6 +15,7 @@ define(function(require, exports, module) {
       $.mobile.hashListeningEnabled = false;
       $.mobile.pushStateEnabled = false;
   });
+
   // Alias the module for easier identification.
   var app = module.exports;
 
