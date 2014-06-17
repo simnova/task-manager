@@ -1,3 +1,5 @@
+/* global require */
+
 // This is the runtime configuration file.  It complements the Gruntfile.js by
 // supplementing shared properties.
 require.config({
@@ -18,7 +20,9 @@ require.config({
     
     "backbone": "../vendor/bower/backbone/backbone",
     "localstorage": "../vendor/bower/backbone.localstorage/backbone.localstorage",
-    "layoutmanager": "../vendor/bower/layoutmanager/backbone.layoutmanager"
+    "layoutmanager": "../vendor/bower/layoutmanager/backbone.layoutmanager",
+    "fastclick": "../vendor/bower/fastclick/lib/fastclick"
+
   },
 
   shim: {
@@ -31,9 +35,7 @@ require.config({
       // This maps the global `Backbone` object to `require("backbone")`.
       exports: "Backbone"
     },
-    //"jquerymobileconfig" : ["jquery"],
-    "jquerymobile" : ["jquery"
-    //,"jquerymobileconfig"
-    ]
+    "jquerymobile" : ["jquery"],
+    "fastclick":{exports: "Fastclick"}
   }
 });

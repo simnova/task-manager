@@ -1,175 +1,193 @@
-define(function (require, exports, module) {
+/* global define */
 
-  var $ = require("jquery");
-  var _ = require("underscore");
-  var Backbone = require("backbone");
-  require("localstorage");
-  var app = require("app");
+define(function(require) {
+    'use strict';
 
-  var Tasks = app.module();
+    var $ = require('jquery');
+    var _ = require('underscore');
+    var Backbone = require('backbone');
+    var app = require('app');
+    require('localstorage');
 
-  Tasks.Model = Backbone.Model.extend({
-    defaults: {
-      "title" : "",
-      "description" : "",
-      "completed" : "false"
-    }
-  });
+    var Tasks = app.module();
 
-  Tasks.Collection = Backbone.Collection.extend({
-    localStorage: new Backbone.LocalStorage("task"),
-    model: Tasks.Model,
-    done: function() {
-      return this.where({completed:true});
-    },
-    remaining: function() {
-      return this.without.apply(this,this.done());
-    },
-    all: function(){
-      return this;
-    },
-    nextOrder: function() {
-      if(!this.length) return 1;
-      return this.last().get('order') + 1;
-    },
-    comparator:'order'
-  });
+    Tasks.Model = Backbone.Model.extend({
+        defaults: {
+            'title': '',
+            'description': '',
+            'completed': 'false'
+        }
+    });
 
-  Tasks.Views.TaskListItem = Backbone.Layout.extend({
-    template: "taskSummary",
-    tagName: "li",
-    name: "task",
-    serialize: function () {
-      return {task : this.model };
-    }
-  });
+    Tasks.Collection = Backbone.Collection.extend({
+        localStorage: new Backbone.LocalStorage('task'),
+        model: Tasks.Model,
 
-  Tasks.Views.Detail = Backbone.Layout.extend({
-    template: "taskDetail",
-    model:null,
-    className: "post",
+        done: function() {
+            return this.where({
+                completed: true
+            });
+        },
 
-    events: {
-      "click #saveTask" : "saveTask"
-    },
+        remaining: function() {
+            return this.without.apply(this, this.done());
+        },
 
-    serialize: function () {
-      return { task: this.model };
-    },
+        all: function() {
+            return this;
+        },
 
-    saveTask: function(){
-      var self = this;
-      var model = self.model;
-      model.save({
-        title: self.$('#title').val(),
-        description: self.$('#description').val(),
-        completed: self.$('#completed').is(':checked')
-      },{
-        success: this.createSuccess
-      });
-    },
+        nextOrder: function() {
+            if (!this.length) return 1;
+            return this.last().get('order') + 1;
+        },
 
-    initialize: function (options) {
-      debugger;
-      var self = this;
-      _.bindAll(self, "createSuccess");
+        comparator: 'order'
+    });
 
-      var collection = new Tasks.Collection();
-      collection.fetch();
-      self.model = collection.find({id:options.TaskId});
+    Tasks.Views.TaskListItem = Backbone.Layout.extend({
+        template: 'taskSummary',
+        tagName: 'li',
+        name: 'task',
 
-      this.listenTo(this.model, 'change', self.render);
-    },
+        serialize: function() {
+            return {
+                task: this.model
+            };
+        }
+    });
 
-    createSuccess: function(m, response) {
-      this.$('#completed').prop('checked',m.attributes.completed);
-    },
+    Tasks.Views.Detail = Backbone.Layout.extend({
+        template: 'taskDetail',
+        model: null,
+        className: 'post',
 
-    afterRender:function(){
-      $('#content').enhanceWithin();
-      $('#completed').checkboxradio('refresh');
-    }
+        events: {
+            'click #saveTask': 'saveTask'
+        },
 
-  });
+        serialize: function() {
+            return {
+                task: this.model
+            };
+        },
 
-  Tasks.Views.Default = Backbone.Layout.extend({
-    template: "tasks",
+        saveTask: function() {
+            var self = this;
+            var model = self.model;
+            model.save({
+                title: self.$('#title').val(),
+                description: self.$('#description').val(),
+                completed: self.$('#completed').is(':checked')
+            }, {
+                success: this.createSuccess
+            });
+        },
 
-    events: {
-      "click #addTask" : "addTask",
-      "change input:radio[name=taskFilter]" : "applyFilter"
-    },
+        createSuccess: function(m) {
+            this.$('#completed').prop('checked', m.attributes.completed);
+        },
 
-    className: 'tasks',
+        initialize: function(options) {
+            var self = this;
+            _.bindAll(self, 'createSuccess');
 
-    filterCollection: function(collectionToShow){
-      var self = this;
-      //hide all
-      _.each(self.collection.models,function(model){
-        $("#task-" + model.attributes.id).hide();
-      });
-      //show only ones 
-      _.each(collectionToShow,function(model){
-        $("#task-" + model.attributes.id).show();
-      });
-    },
+            var collection = new Tasks.Collection();
+            collection.fetch();
+            self.model = collection.find({
+                id: options.TaskId
+            });
 
-    renderCollection: function(collection){
-      var self = this;
-      $('#taskContainer').empty();
-      _.each(collection,function(model) {
-        self.addTaskToList(model);
-      });
-    },
+            this.listenTo(this.model, 'change', self.render);
+        },
 
-    addTaskToList: function(model){
-      var self = this;
-      var container = '#taskContainer';
-      return self.insertView(container, new Tasks.Views.TaskListItem({ model: model, id: 'task-' + model.attributes.id }));
-    },
-    
-    applyFilter: function(){
-      var self = this;
-      switch($("input:radio[name=taskFilter]:checked").val()){
-        case "filterIncomplete":
-          self.filterCollection.call(self,self.collection.remaining());
-          break;
-        case "filterCompleted":
-          self.filterCollection.call(self,self.collection.done());
-          break;
-        case "filterNone":
-          self.filterCollection.call(self,self.collection.models);
-          break;
-      }
-    },
+        afterRender: function() {
+            $('#content').enhanceWithin();
+            $('#completed').checkboxradio('refresh');
+        }
 
-    addTask: function(){
-      var self = this;
-      var newModel = self.collection.create({title: self.$('#newTaskTitle').val()});
-      self.addTaskToList(newModel).render().promise().then(function(){
-        $('#taskContainer').listview('refresh');
-      });
-    },
+    });
 
-    collection: new Tasks.Collection(),
+    Tasks.Views.Default = Backbone.Layout.extend({
+        template: 'tasks',
+        collection: new Tasks.Collection(),
 
-    initialize: function () {
-      var self = this;
-      self.collection.fetch();
-      console.log("initialized");
-    },
+        events: {
+            'click #addTask': 'addTask',
+            'change input:radio[name=taskFilter]': 'applyFilter'
+        },
 
-    beforeRender: function () {
-      var self = this;
-      self.renderCollection(self.collection.models);
+        className: 'tasks',
 
-    },
+        filterCollection: function(collectionToShow) {
+            var self = this;
+            //hide all
+            _.each(self.collection.models, function(model) {
+                $('#task-' + model.attributes.id).hide();
+            });
+            //show only ones that match criteria
+            _.each(collectionToShow, function(model) {
+                $('#task-' + model.attributes.id).show();
+            });
+        },
 
-    afterRender:function(){
-      $('#content').enhanceWithin();
-    }
+        renderCollection: function(collection) {
+            var self = this;
+            $('#taskContainer').empty();
+            _.each(collection, function(model) {
+                self.addTaskToList(model);
+            });
+        },
 
-  });
+        addTaskToList: function(model) {
+            var self = this;
+            var container = '#taskContainer';
+            return self.insertView(container, new Tasks.Views.TaskListItem({
+                model: model,
+                id: 'task-' + model.attributes.id
+            }));
+        },
 
-  return Tasks;
+        applyFilter: function() {
+            var self = this;
+            switch ($('input:radio[name=taskFilter]:checked').val()) {
+                case 'filterIncomplete':
+                    self.filterCollection.call(self, self.collection.remaining());
+                    break;
+                case 'filterCompleted':
+                    self.filterCollection.call(self, self.collection.done());
+                    break;
+                case 'filterNone':
+                    self.filterCollection.call(self, self.collection.models);
+                    break;
+            }
+        },
+
+        addTask: function() {
+            var self = this;
+            var newModel = self.collection.create({
+                title: self.$('#newTaskTitle').val()
+            });
+            self.addTaskToList(newModel).render().promise().then(function() {
+                $('#taskContainer').listview('refresh');
+            });
+        },
+
+        initialize: function() {
+            var self = this;
+            self.collection.fetch();
+        },
+
+        beforeRender: function() {
+            var self = this;
+            self.renderCollection(self.collection.models);
+        },
+
+        afterRender: function() {
+            $('#content').enhanceWithin();
+        }
+
+    });
+
+    return Tasks;
 });

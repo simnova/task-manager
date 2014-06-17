@@ -9,6 +9,17 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+
+    <platform name="android">
+        <preference name="DisallowOverscroll" value="true"/>
+    </platform>
+
+    <platform name="ios">
+        <preference name="DisallowOverscroll" value="true"/>
+        <preference name="HideKeyboardFormAccessoryBar" value="true"/>
+        <preference name="ios-statusbarstyle" value="black-opaque" />
+    </platform>
+
     <preference name="load-url-timeout" value="60000" />
 
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android" gap:density="ldpi"  />
