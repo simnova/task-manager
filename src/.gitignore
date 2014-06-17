@@ -2,3 +2,5 @@
 /node_modules/
 /vendor/bower/
 /test/coverage/
+/cordova/platforms/
+/cordova/www/

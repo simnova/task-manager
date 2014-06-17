@@ -21,8 +21,9 @@ require.config({
     "backbone": "../vendor/bower/backbone/backbone",
     "localstorage": "../vendor/bower/backbone.localstorage/backbone.localstorage",
     "layoutmanager": "../vendor/bower/layoutmanager/backbone.layoutmanager",
+    "ga": "../vendor/google-analytics-amd",
+    "analytics": "../vendor/analytics",
     "fastclick": "../vendor/bower/fastclick/lib/fastclick"
-
   },
 
   shim: {

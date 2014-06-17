@@ -19,7 +19,7 @@ module.exports = function(grunt) {
           insertRequire: ["main"],
           out: "dist/source.min.js",
           paths: {
-            cordova: "empty:",
+            cordova: "empty:"
           },
           optimize: "uglify2",
 

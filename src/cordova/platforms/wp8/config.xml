@@ -10,6 +10,7 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="load-url-timeout" value="60000" />
+<<<<<<< HEAD
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
     <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
@@ -20,4 +21,12 @@
     <icon gap:platform="ios" src="res/icon/ios/icon-72-2x.png" />
     <icon gap:platform="wp8" src="res/icon/windows-phone/icon-62-tile.png" />
     <icon gap:platform="wp8" src="res/icon/windows-phone/icon-173-tile.png" />
+=======
+    <feature name="SplashScreen">
+        <param name="wp-package" value="SplashScreen" />
+    </feature>
+    <feature name="Notification">
+        <param name="wp-package" value="Notification" />
+    </feature>
+>>>>>>> 76a805926c87450915d1423f7512dc2de2b4f7e8
 </widget>

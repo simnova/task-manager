@@ -4,6 +4,13 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <preference name="DisallowOverscroll" value="true" />
     <name>taskr</name>
     <description>
         A sample Apache Cordova application that uses backbone and jquery mobile.

@@ -10,7 +10,6 @@ require(['config'], function() {
     var $ = require('jquery');
     var Backbone = require('backbone');
 
-
     // Define your master router on the application namespace and trigger all
     // navigation from this instance.
     app.router = new Router();

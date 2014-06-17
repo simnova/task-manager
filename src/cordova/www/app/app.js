@@ -1,3 +1,4 @@
+/* global define */
 define(function(require, exports, module) {
   "use strict";
 
@@ -6,17 +7,18 @@ define(function(require, exports, module) {
   var $ = require("jquery");
   var Backbone = require("backbone");
   require("layoutmanager");
+  require('fastclick');
 
 
-
-  console.log("mobile.config executing");
+  // Need to turn off default JQuery Mobile functionality that is duplicated
+  // with backbone. 
   $(document).on("mobileinit", function () {
-      console.log("mobileinit fired");
       $.mobile.ajaxEnabled = false;
       $.mobile.linkBindingEnabled = false;
       $.mobile.hashListeningEnabled = false;
       $.mobile.pushStateEnabled = false;
   });
+
   // Alias the module for easier identification.
   var app = module.exports;
 
@@ -57,8 +59,6 @@ define(function(require, exports, module) {
     }
 
   });
-
-
 
   // Mix Backbone.Events, modules, and layout management into the app object.
   return _.extend(app, {
